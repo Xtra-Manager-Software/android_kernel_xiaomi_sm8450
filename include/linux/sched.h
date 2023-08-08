@@ -58,7 +58,6 @@ struct robust_list_head;
 struct root_domain;
 struct rq;
 struct sched_attr;
-struct sched_param;
 struct seq_file;
 struct sighand_struct;
 struct signal_struct;
@@ -271,22 +270,9 @@ struct vtime {
 	u64			gtime;
 };
 
-/*
- * Utilization clamp constraints.
- * @UCLAMP_MIN:	Minimum utilization
- * @UCLAMP_MAX:	Maximum utilization
- * @UCLAMP_CNT:	Utilization clamp constraints count
- */
-enum uclamp_id {
-	UCLAMP_MIN = 0,
-	UCLAMP_MAX,
-	UCLAMP_CNT
+struct sched_param {
+	int sched_priority;
 };
-
-#ifdef CONFIG_SMP
-extern struct root_domain def_root_domain;
-extern struct mutex sched_domains_mutex;
-#endif
 
 struct sched_info {
 #ifdef CONFIG_SCHED_INFO
